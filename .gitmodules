@@ -2,13 +2,16 @@
 	path = toolchain/riscv-gnu-toolchain
 	url = https://github.com/riscv/riscv-gnu-toolchain.git
 	ignore = dirty
+	update = none
 [submodule "toolchain/riscv-isa-sim"]
 	path = toolchain/riscv-isa-sim
 	url = https://github.com/riscv/riscv-isa-sim.git
 	ignore = dirty
+	update = none
 [submodule "toolchain/verilator"]
 	path = toolchain/verilator
 	url = https://github.com/verilator/verilator
+	update = none
 [submodule "hardware/deps/axi"]
 	path = hardware/deps/axi
 	url = https://github.com/pulp-platform/axi.git
@@ -25,10 +28,12 @@
 	path = toolchain/newlib
 	url = https://sourceware.org/git/newlib-cygwin.git
 	ignore = dirty
+	update = none
 [submodule "toolchain/riscv-llvm"]
 	path = toolchain/riscv-llvm
 	url = https://github.com/llvm/llvm-project.git
 	ignore = dirty
+	update = none
 [submodule "hardware/deps/apb"]
 	path = hardware/deps/apb
 	url = https://github.com/pulp-platform/apb.git
