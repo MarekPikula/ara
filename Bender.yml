@@ -13,6 +13,7 @@ dependencies:
   cva6:               { git: "https://github.com/MaistoV/cva6_fork.git",              rev: ara_cheshire }
   tech_cells_generic: { git: "https://github.com/pulp-platform/tech_cells_generic.git", version: 0.2.1  }
   apb:                { git: "https://github.com/pulp-platform/apb.git",                version: 0.2.4  }
+  axi_riscv_atomics:  { git: "https://github.com/pulp-platform/axi_riscv_atomics.git",  rev: 550881f12e22dfae405612fc1df6368f4c003e68 }
 
 workspace:
   checkout_dir: "hardware/deps"
