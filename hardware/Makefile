@@ -123,6 +123,7 @@ bender:
 .PHONY: apply-patches
 apply-patches: patches
 	cd deps/tech_cells_generic && git apply ../../patches/0001-tech-cells-generic-sram.patch
+	cd deps/cva6 && git apply ../../patches/0002-cva6.patch
 
 # Library
 .PHONY: lib

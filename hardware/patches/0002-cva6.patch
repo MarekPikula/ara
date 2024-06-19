@@ -1,0 +1,34 @@
+diff --git a/core/cva6.sv b/core/cva6.sv
+index a1fcd491..56b09dfe 100644
+--- a/core/cva6.sv
++++ b/core/cva6.sv
+@@ -65,6 +65,8 @@ module cva6 import ariane_pkg::*; #(
+   // RISC-V formal interface port (`rvfi`):
+   // Can be left open when formal tracing is not needed.
+   output ariane_pkg::rvfi_port_t       rvfi_o,
++  // firesim trace port
++  output traced_instr_pkg::trace_port_t trace_o,
+   output cvxif_req_t                   cvxif_req_o,
+   input  cvxif_resp_t                  cvxif_resp_i,
+   // L15 (memory side)
+@@ -943,6 +945,20 @@ module cva6 import ariane_pkg::*; #(
+   // Instruction Tracer
+   // -------------------
+ 
++  // Instruction trace port (used for FireSim)
++  for (genvar i = 0; i < NR_COMMIT_PORTS; i++) begin : gen_tp_connect
++    assign trace_o[i].clock = clk_i;
++    assign trace_o[i].reset = rst_ni;
++    assign trace_o[i].valid = commit_ack[i] & ~commit_instr_id_commit[i].ex.valid;
++    assign trace_o[i].iaddr = commit_instr_id_commit[i].pc;
++    assign trace_o[i].insn = commit_instr_id_commit[i].ex.tval[31:0];
++    assign trace_o[i].priv = priv_lvl;
++    assign trace_o[i].exception = commit_ack[i] & commit_instr_id_commit[i].ex.valid & ~commit_instr_id_commit[i].ex.cause[63];
++    assign trace_o[i].interrupt = commit_ack[i] & commit_instr_id_commit[i].ex.valid & commit_instr_id_commit[i].ex.cause[63];
++    assign trace_o[i].cause = commit_instr_id_commit[i].ex.cause;
++    assign trace_o[i].tval = commit_instr_id_commit[i].ex.tval[31:0];
++  end
++
+   //pragma translate_off
+ `ifdef PITON_ARIANE
+   localparam PC_QUEUE_DEPTH = 16;
