@@ -32,3 +32,16 @@ index a1fcd491..56b09dfe 100644
    //pragma translate_off
  `ifdef PITON_ARIANE
    localparam PC_QUEUE_DEPTH = 16;
+diff --git a/core/include/cv64a6_imafdcv_sv39_config_pkg.sv b/core/include/cv64a6_imafdcv_sv39_config_pkg.sv
+index 82e4675e..4ef5cbea 100644
+--- a/core/include/cv64a6_imafdcv_sv39_config_pkg.sv
++++ b/core/include/cv64a6_imafdcv_sv39_config_pkg.sv
+@@ -54,7 +54,7 @@ package cva6_config_pkg;
+     localparam CVA6ConfigNrCommitPorts = 2;
+     localparam CVA6ConfigNrScoreboardEntries = 8;
+ 
+-    localparam CVA6ConfigFPGAEn = 0;
++    localparam CVA6ConfigFPGAEn = 1;
+ 
+     localparam CVA6ConfigNrLoadPipeRegs = 1;
+     localparam CVA6ConfigNrStorePipeRegs = 0;
